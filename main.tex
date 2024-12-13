@@ -85,6 +85,70 @@ In the Identification stage, all potential studies are collected by searching da
 
 In the next stage, Eligibility, full texts of the remaining studies are thoroughly assessed to confirm their relevance and quality. Articles failing to meet the review criteria are excluded, ensuring only high-quality and relevant studies are retained. Finally, in the Inclusion stage, the selected studies form the basis of the systematic review. If applicable, the meta-analysis is conducted using a subset of these studies, providing quantitative insights by synthesizing data from multiple studies. This structured approach ensures rigor and clarity in systematic reviews.
 
+\section{Result}
+
+Using the keywords and constraints for advanced search, we searched and found many studies from the ScienceDirect database, that is 811 results. arXiv, Scopus, and Springer gave much less, respectively 123, 95, and 79. To overcome this, we only picked the top 40 papers from each site, leaving us with 160 studies to proceed. Moving to the next step, we filtered them using a tool named Zotero, which will reduce the number of documents by deleting any duplicates, then excluding any study that doesn't match our topic by its title and abstract. There were 59 studies left after duplicate deletion and further reduced to 19 from the filtering stage.
+
+We manually checked the remaining papers, which found that only 7 of them are appropriate for our topic. Final screening left only 4 studies, where we did an eligibility check on that collection. We got 4 selected researches for the systematic review, including the study conducted by Oh \& Jung (2015), Wang et al. (2016), Zhao et al. (2018), and Balaneshinkordan \& Kotov (2019)
+
+\begin{table}[htbp!]
+    \centering
+    \caption{Final Documents in Collection}
+    \begin{tabular}{|>{\centering}m{2.5cm}|>{\centering}m{2.5cm}|>{\centering\arraybackslash}m{2.5cm}|}
+        \hline
+        \textbf{Modification} & \textbf{Method} & \textbf{References} \\
+        \hline
+        Relevance and Expansion Models & Cluster-based External Expansion Model & (Oh \& Jung, 2015) \\
+        \hline
+        Part-Of-Speech for Term Weighting Scheme & POS-Bag-of-Words, POS-MRF & (Wang et al., 2016) \\
+        \hline
+        Automation on Knowledge Model Creation & Data-Driven Sublanguage Pattern Mining Method & (Zhao et al., 2018) \\
+        \hline
+        Probabilistic Framework for Query Expansion & Bayesian Precision Medicine (BPM) & (Balaneshinkordan \& Kotov, 2019) \\
+        \hline
+    \end{tabular}
+    \label{table:PRISMA-Result}
+\end{table}
+
+Based on literature data analysis, numerous approaches have been suggested to boost the efficiency of medical Information Retrieval (IR) models. These approaches target enhancement in  various aspects of medical IR, such as query expansion, knowledge modeling, and weighting schemes.
+
+\subsection{Cluster-based Query Expansion using External Collections}
+
+One of the main problems in the field of information retrieval in the medical sector is the shortage of matched vocabulary (synonymy and polysemy phenomena) between a query and documents. One good way to deal with this problem is expanding the query using Pseudo Relevance Feedback (PRF).
+
+The External Expansion Model (EEM) is a PRF method that falls under this category. It constitutes an extension of the Mixture of Relevance Model (MoRM), which mainly deals with the mixing of different document types in the relevant collection in order for the user-issued query to come up with the final retrieval results, the mixture of different query-document relationships. However, it was noticed that these external collections aid EEM only in the case of estimating a co-model.
+
+Oh and Jung \cite{Oh2015} came up with a Cluster-Based External Expansion Model (CBEEM), which is an integration of EEM and Cluster-Based Document Model (CBDM) in order to overcome these limitations. The model sees each external collection as a cluster, which makes it the document model without any extra steps like K-means more accurate.
+
+The trial outcomes illustrated the fact that the CBEEM consistently ranked higher than QL and EEM among all databases. Just to give you an example, for TREC CDS, the CBEEM increased the MAP measure by 15.19\% and NDCG by 10.32\%. In the case of OHSUMED, the CBEEM showed improvements of 15.51\% in MAP and 12.33\% in NDCG. All of these indicate that CBEEM is going to be successfully used for the improvement of the medical information retrieval systems.
+
+\subsection{Part-Of-Speech Term Weighting Scheme}
+
+Current Information Retrieval (IR) systems employ the well-known Bag-of-Words (BoW) approach, but it has a restricted linguistic point of view. Markov Random Field (MRF) is applied, claim word ma'serences are dependent on each other should be helpful to solve this problem. However, it is lim. In the process of the claim, the algorithm that was supposed to assign the weights to the terms within a clique, thus, mainly target those informative terms was potentially overlooking informativeness differences.
+
+To do so, researchers Wang et al. \cite{Wang2016} created a methodology to highlight the biomedical domain for information retrieval by using an automatic Part-Of-Speech term weighting scheme. The POS-BoW and POS-MRF were formed from the term weighing scheme and the already existing BoW and MRF models, respectively.
+
+By introducing the weight calculation algorithm based on supervised learning, they have applied a number of optimization techniques (such as Mean Average Precision (MAP) through the golden section search method and cyclic coordinate descent). Their experimental datasets were composed of Medical Records track (TREC 2011 \& 2012) and Genomics track (TREC 2004). The developed POS-BoW and POS-MRF models were experimentally compared against the already known tf-idf and BM25 methods.
+
+According to the research, the POS-BoW model (with Mean Average Precision (MAP)) showed a rise of 10.88\%, while the POS-MRF model also demonstrated a 13.59\% increase with respect to the traditional BoW and MRF approaches. In the case of the TREC 2004 Genomics track, the POS-MRF model performance improved by around 10.04\% compared to the baseline. The newly proposed POS-driven term weighting scheme outperformed frequency-based and heuristic-based methods, thus proving the potential of the learning algorithm to generate optimal weights effecting the retrieval process of information (IR).
+
+\subsection{Data-Driven Sublanguage Pattern Mining}
+
+Knowledge models serve as structured representations of information within a specific domain, comprising semantic categories as nodes and semantic relationships as edges. These models play a crucial role in converting unstructured textual data into a computationally interpretable format. Existing knowledge models typically depend on machine learning or manually constructed ontologies. As a consequence, it leads to low accuracy in extracting entities and relationships, limited stability and adaptability to new domains due to manual efforts, and ineffectiveness in handling semantic complexity.
+
+To combat this, a new method is introduced by Zhao et al. \cite{Zhao2018} that integrates Natural Language Processing (NLP) and semantic network analysis techniques. This method aims to reveal a sublanguage pattern model within a domain-specific context. It utilizes a novel, bottom-up, context-based approach, combining syntactic analysis and data-driven semantic network analyses to explore semantic relations within a particular corpus.
+
+The evaluation results indicate that the model covers 98\% of entities and 97\% of relationships. Machine annotation achieved a precision of 87\%, recall of 79\%, and an F-score of 82\%. This method shows a promising path to improve the effectiveness of medical information retrieval systems through data-driven sublanguage pattern mining.
+
+\subsection{Bayesian Approach to Incorporate Different Types of Knowledge Bases}
+
+Precision Medicine (PM) \cite{Collins2015} is an ongoing initiative wherein highly personalized healthcare is pursued by providing differential diagnosis of patients at both physiological and molecular levels. The current Information Retrieval (IR) system in Clinical Decision Support (CDS) for Precision Medicine (PM) still cannot optimally utilize data such as genomic and textual data in structured queries. Further, they encounter problems such as a vocabulary mismatch, semantic heterogeneity in medical information, and topic drift during query expansion due to the inclusion of unrelated concepts.
+
+Balaneshinkordan and Kotov developed a new probabilistic framework, Bayesian Precision Medicine (BPM), which uses the Bayesian approach for query expansion \cite{Balaneshinkordan2019}. This approach has a goal to increase the exactness of IR systems in the case of the selection of specific patient articles in CDS systems.
+
+The BPM framework establishes a set of concept extensions for the query via such sources as the Unified Medical Language System (UMLS), Drug-Gene Interaction Database (DGIdb), as well as relevant MEDLINE articles first. This is done by assigning prior probabilities for co-occurring terms and genomic context while tying textual and genomic query details together using Bayesian inference.
+
+On analyzing the TREC 2017 Precision Medicine dataset, it is revealed that BPM, with a total recall of 0.4929 against the current system's 0.4593, has shown a marked improvement in system performance. Important findings brought to the fore include superior concept performance of the sources from MEDLINE and the finer accuracy achieved by the disease and gene characteristics.
 \bibliographystyle{ieeetr}
 \bibliography{references}
 
